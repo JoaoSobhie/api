@@ -8,19 +8,23 @@ $dbname = "db_energymeter";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
 $sql = "Select Extract(hour from data_consumo) as hora, sum(kWh) from consumo where date(data_consumo) = '2022-10-04' group by Extract(hour from data_consumo)";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo result;
-  }
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<br> id: ". $row["id"]. " - Name: ". $row["firstname"]. " " . $row["lastname"] . "<br>";
+    }
 } else {
-  echo "0 results";
+    echo "0 results";
 }
+
 $conn->close();
 ?>
+
+</body>
+</html>
