@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+<body>
 <?php
 $servername = "34.132.237.95";
 $username = "root";
